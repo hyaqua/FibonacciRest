@@ -16,6 +16,11 @@ python3 -m venv .\.venv
 python3 -m venv .\.venv
 source ./.venv/bin/activate
 ```
+### Installing python dependencies
+```
+pip3 install -r requirements.txt
+```
+
 ### Running the program
 ```
 flask --app main run --port=8080
