@@ -35,4 +35,13 @@ This should return a number that corresponds to the fibonacci number
 So for example if ``n`` was ``10`` then you would get a response of ``55``
 
 ## Considerations
-TODO
+
+### Containerization
+Containerizing this API is pretty straightforward and could enhance the aase of deploying and running the application consistently across many different environments.
+By using Docker and the official python base image, you can package the app and all of its dependencies into a single image,
+ensuring that it always runs the same way.
+### Continuous Integration/Continuous Deployment
+
+### Monitoring
+
+### Scalability
