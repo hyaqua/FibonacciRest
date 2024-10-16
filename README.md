@@ -1,4 +1,4 @@
-# FibonacciRest
+# Fibonacci REST API
  A REST API that computes and returns the nth number in the Fibonacci sequence
 
 # Prerequisites
@@ -21,7 +21,7 @@ source ./.venv/bin/activate
 pip3 install -r requirements.txt
 ```
 
-### Running the program
+### Running the application
 ```
 flask --app main run --port=8080
 ```
@@ -37,22 +37,22 @@ So for example if ``n`` was ``10`` then you would get a response of ``55``
 ## Considerations
 This API could easily be deployed and used in a production environment using the following principles
 ### Containerization
-Containerizing this API is pretty straightforward and could enhance the aase of deploying and running the application consistently across many different environments.
+Containerizing this API is pretty straightforward and could enhance the ease of deploying and running the application consistently across many different environments.
 By using Docker and the official python base image, you can package the app and all of its dependencies into a single image,
 ensuring that it always runs the same way.
 ### Continuous Integration/Continuous Deployment
 #### Continuous Integration
-We could use GitHub actions, and the pytest framework to be able to test and validate the correctness of the API ensuring that the app's logic and endpointss work as expected.
+We could use GitHub actions, and the pytest framework to be able to test and validate the correctness of the API ensuring that the app's logic and endpoints work as expected.
 
 #### Continuous Deployment
-After passing tests the app could be deployed to a staging environment for further testing and validation in a production-like environmont
+After passing tests the app could be deployed to a staging environment for further testing and validation in a production-like environment.
 
 Once the API is validated in staging it can be manually approved for deployment to the production environment. This ensures that only stable and tested versions of the Fibonacci API are released.
 #### Monitoring
-For monitoring the application an established flask dashboard could be used, such as ```Flask-MonitoringDashboard``` which has performance and utilization monitoring, request and enpoint profling, and much more.
+For monitoring the application an established flask dashboard could be used, such as ```Flask-MonitoringDashboard``` which has performance and utilization monitoring, endpoint profiling, and much more.
 
 But for a simple API such as this, a dashboard like that may be too much. A better suited method could be just to use the built-in python logging module
-The most important things to monitor would be the requests that are sent, what they return and the fibonacci function calls
+The most important metrics to monitor would be the requests that are sent, what they return and the fibonacci function calls
 #### Scalability
 As it is the API is already very scalable, it follows a stateless design meaning that each request is independent of others. This makes it easier to scale it horizontally, by adding more instances of the API server.
 
