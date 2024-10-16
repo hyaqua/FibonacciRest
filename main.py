@@ -7,19 +7,15 @@ def fibonacci(n):
 
 def create_app():
     app = Flask(__name__)
-    @app.route('/', methods=['GET'])
-    def return_fibonacci_number():
-        req_body = request.get_data().decode('utf-8')
-        # We get the request body from the user and decode it from a byte string to a normal string
-
-        if req_body.isdigit():
-            req_body = int(req_body)
-        # if an int is parsable from the request body we get it
+    @app.route('/<num>', methods=['GET'])
+    def return_fibonacci_number(num):
+        # We check if the passed number is a number, if it is we convert it to an integer
+        if str.isdigit(num):
+            num = int(num)
+        # If not then we return that the request body must be a number
         else:
             return "Request Body must be an integer", 400
-        # If not then we return that the request body must be a number
 
-        # If everything went correctly we run the fibonacci function and return the result
-        return str(fibonacci(req_body)), 200
+        return str(fibonacci(num)), 200
 
     return app
